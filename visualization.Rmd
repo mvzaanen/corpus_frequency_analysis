@@ -1,0 +1,38 @@
+---
+title: "Stopword visualization"
+output: pdf_document
+date: "2026-03-05"
+---
+
+# Initialization
+
+Grab packages.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(tikzDevice)
+```
+
+# Read data
+
+Read the results of the size comparisons.
+
+```{r}
+stopwords <- read.csv("out/output.csv", header = T)
+stopwords$top_n <- as.factor(stopwords$top_n)
+```
+
+
+# Visualization
+
+Create graph for the results.
+
+```{r}
+stopwords %>%
+    ggplot( aes(x = percentage, y = jaccard, color = top_n)) +
+    theme_minimal() +
+    geom_line()
+```
