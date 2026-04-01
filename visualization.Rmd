@@ -21,7 +21,7 @@ library(tikzDevice)
 Read the results of the size comparisons.
 
 ```{r}
-stopwords <- read.csv("out/output.csv", header = T)
+stopwords <- read.csv("out/Corpus.DACB5.FinalDrop-Monolingual(NR).2.0.0.CAM.2021-01-31.nr.txt_output.csv", header = T)
 stopwords$top_n <- as.factor(stopwords$top_n)
 ```
 
